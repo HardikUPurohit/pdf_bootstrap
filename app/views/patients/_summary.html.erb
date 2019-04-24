@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('summary') %></h4>
+  </div>
+  <div class="panel-body">
+    <p>This <%= patient.age %> years old <%= patient.gender %> was admitted to <%= patient.facility_name %> on <%= patient.admission.date %> at <%= patient.admission.time %> due to <%= patient.admission.diagnoses_text.to_sentence%>.
+    The observed symptoms on admission were <%=patient.admission.symptom_text.to_sentence%>. <%= patient.admission.observation_text.to_sentence %>.</p>
+
+    <p>Upon asking about known allergies, the patient disclosed <%= patient.allergies_description.to_sentence %>.
+    Upon asking about chronic conditions, the patient disclosed <%= patient.chronic_condition_text.to_sentence %>.
+    The patient was administered with <%= patient.medications_text.to_sentence %>.</p>
+
+    <p>The staff performed <%= patient.diagnostic_procedure_text.to_sentence %>, revealing
+    <%= patient.diagnoses_text.to_sentence %>. Our team proceeded to <%= patient.treatments_text.to_sentence %>.</p>
+  </div>
+</div>

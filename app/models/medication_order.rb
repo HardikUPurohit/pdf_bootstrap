@@ -5,5 +5,9 @@ class MedicationOrder < ApplicationRecord
 
   # Relations
   belongs_to :patient
-  has_one :order_frequency
+  has_one :order_frequency, dependent: :destroy
+
+  def frequency
+    "#{order_frequency.value}#{order_frequency.unit}"
+  end
 end

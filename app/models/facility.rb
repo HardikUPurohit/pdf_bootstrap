@@ -1,3 +1,3 @@
 class Facility < ApplicationRecord
-  has_many :admissions
+  has_many :admissions, dependent: :destroy
 end

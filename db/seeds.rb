@@ -11,6 +11,7 @@ puts 'Create Patient'
 patient = Patient.find_or_create_by(first_name: 'Thomas', middle_name: '', last_name: 'Schudel') do |p|
   p.mr = '30997'
   p.gender = 0
+  p.dob = DateTime.now - 43.years
 end
 
 puts 'Created Patient'
@@ -86,6 +87,7 @@ puts 'Create MedicationOrder and OrderFrequency'
 medication = MedicationOrder.find_or_create_by(name: 'Acetaminophen') do |m|
   m.dosage = 500
   m.unit = 0
+  m.route = 0
   m.necessity = 'relieve pain'
   m.patient_id = patient.id
 end

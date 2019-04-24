@@ -1,0 +1,8 @@
+<div class="container">
+  <h2><%= t('patient.title') %></h2>
+  <% if @patients.present? %>
+    <%= render 'patients' %>
+  <% else %>
+    <%= patient.not_found %>
+  <% end %>
+</div>

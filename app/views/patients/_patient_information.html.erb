@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Patient Information</h4>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('patient.first_name') %></th>
+            <th><%= t('patient.middle_name') %></th>
+            <th><%= t('patient.last_name') %></th>
+            <th><%= t('patient.medical_record') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= patient.first_name %></td>
+            <td><%= patient.middle_name %></td>
+            <td><%= patient.last_name %></td>
+            <td><%= patient.mr %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

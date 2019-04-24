@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  patient:
+    title: 'Patients'
+    table:
+      gender: 'Gender'
+    not_found: 'No Patients found'
+    transferring_facility: 'Transferring Facility'
+    first_name: 'First Name'
+    middle_name: 'Middle Name'
+    last_name: 'Last Name'
+    medical_record: 'Medical Record (MR)'
+    emergency_summary: 'Emergency Transfer Summary (Form 34L-D)'
+  hash: '#'
+  name: 'Name'
+  summary: 'Summary'
+  back: 'Back'
+  
