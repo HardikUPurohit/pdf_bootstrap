@@ -1,0 +1,12 @@
+require 'rails_helper'
+
+RSpec.describe MedicationOrder, type: :model do
+  let!(:medication_order) { create(:medication_order) }
+
+  context '#frequency' do
+    let!(:order_frequency) { create(:order_frequency, medication_order: medication_order) }
+    it 'returns order frequency' do
+      expect(medication_order.frequency).to eq('q6hour')
+    end
+  end
+end
