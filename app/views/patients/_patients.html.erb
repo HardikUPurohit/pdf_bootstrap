@@ -11,7 +11,7 @@
       <% @patients.each_with_index do |patient, index| %>
         <tr>
           <td><%= index + 1 %></td>
-          <td><%= link_to patient.first_name, patient_path(patient) %></td>
+          <td><%= link_to patient.first_name, patient_path(patient), id: patient.first_name %></td>
           <td><%= patient.gender %></td>
         </tr>
       <% end %>
