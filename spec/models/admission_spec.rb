@@ -4,13 +4,11 @@ RSpec.describe Admission, type: :model do
   let!(:admission) { create(:admission) }
 
   context 'Validations' do
-    describe 'invalid' do
-      it 'Creating invalid record' do
-        expect(Admission.new.save).to eq(false)
-      end
-      it 'Updating record with invalid value' do
-        expect(admission.update(moment: '')).to eq(false)
-      end
+    it 'Creating invalid record' do
+      expect(Admission.new.save).to eq(false)
+    end
+    it 'Updating record with invalid value' do
+      expect(admission.update(moment: '')).to eq(false)
     end
   end
 
@@ -40,6 +38,12 @@ RSpec.describe Admission, type: :model do
     let!(:observation) { create(:observation, admission: admission) }
     it 'returns observations array' do
       expect(admission.observation_text).to eq(['No soft tissues were damaged.'])
+    end
+  end
+
+  context '#diagnoses_text' do
+    it 'returns diagnosis array' do
+      expect(admission.diagnoses_text).to eq(['a fracture of upper end of the right tibia (S82.101)', 'Asthma (J45)'])
     end
   end
 end

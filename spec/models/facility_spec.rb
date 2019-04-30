@@ -4,13 +4,11 @@ RSpec.describe Facility, type: :model do
   let(:facility) { create(:facility) }
 
   context 'Validation' do
-    describe 'name should be presence' do
-      it 'Creating invalid record' do
-        expect(Facility.new.save).to eq(false)
-      end
-      it 'Updating record with invalid value' do
-        expect(facility.update(name: '')).to eq(false)
-      end
+    it 'Creating invalid record' do
+      expect(Facility.new.save).to eq(false)
+    end
+    it 'Updating record with invalid value' do
+      expect(facility.update(name: '')).to eq(false)
     end
   end
 

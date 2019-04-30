@@ -1,4 +1,7 @@
 class Patient < ApplicationRecord
+  # Validations
+  validates :first_name, :last_name, :mr, :dob, :gender, presence: true
+
   # Enums
   enum gender: { male: 0, female: 1, other: 2 }
 

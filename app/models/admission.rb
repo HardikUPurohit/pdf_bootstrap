@@ -1,5 +1,4 @@
 class Admission < ApplicationRecord
-
   # Validations
   validates :moment, :patient, :facility, presence: true
 
