@@ -2,13 +2,52 @@ require 'rails_helper'
 
 RSpec.describe Patient, type: :model do
   let!(:patient) { create(:patient) }
-  context 'Validation' do
-    it 'Creating invalid record' do
-      expect(Patient.new.save).to eq(false)
+  context 'Validations Checks' do
+    context 'without all mandatory fields' do
+      let(:patient) { Patient.new }
+
+      it 'not valid without all mandatory fields' do
+        expect(patient.save).to be_falsey
+        expect(patient.errors.full_messages).to include *["First name can't be blank", "Last name can't be blank", "Mr can't be blank", "Dob can't be blank", "Gender can't be blank"]
+      end
     end
-    
-    it 'Updating record with invalid value' do
-      expect(patient.update(first_name: '')).to eq(false)
+
+    it 'not valid without first_name set' do
+      patient.first_name = nil
+      expect(patient.save).to be_falsey
+      expect(patient.errors.full_messages).to include *["First name can't be blank"]
+    end
+
+    it 'not valid without last_name set' do
+      patient.last_name = nil
+      expect(patient.save).to be_falsey
+      expect(patient.errors.full_messages).to include *["Last name can't be blank"]
+    end
+
+    it 'not valid without mr set' do
+      patient.mr = nil
+      expect(patient.save).to be_falsey
+      expect(patient.errors.full_messages).to include *["Mr can't be blank"]
+    end
+
+    it 'not valid without dob set' do
+      patient.dob = nil
+      expect(patient.save).to be_falsey
+      expect(patient.errors.full_messages).to include *["Dob can't be blank"]
+    end
+
+    it 'not valid without gender set' do
+      patient.gender = nil
+      expect(patient.save).to be_falsey
+      expect(patient.errors.full_messages).to include *["Gender can't be blank"]
+    end
+
+    context 'update with invalid date' do
+      let!(:patient) { create(:patient) }
+      
+      it 'not valid with invalid date' do
+        expect(patient.update(first_name: '')).to be_falsey
+      end
     end
   end
 

@@ -1,6 +1,6 @@
 class Observation < ApplicationRecord
   # Validations
-  validates :description, :moment, :admission, presence: true
+  validates :description, :moment, presence: true
 
   # Relations
   belongs_to :admission

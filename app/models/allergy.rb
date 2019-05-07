@@ -1,6 +1,6 @@
 class Allergy < ApplicationRecord
   # Validations
-  validates :description, :patient, presence: true
+  validates :description, presence: true
 
   # Relations
   belongs_to :patient

@@ -1,6 +1,6 @@
 class DiagnosticProcedure < ApplicationRecord
   # Validations
-  validates :description, :moment, :patient, presence: true
+  validates :description, :moment, presence: true
 
   # Associations
   belongs_to :patient

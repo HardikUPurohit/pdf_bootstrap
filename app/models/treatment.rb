@@ -1,6 +1,6 @@
 class Treatment < ApplicationRecord
   # Validations
-  validates :description, :necessity, :patient, presence: true
+  validates :description, :necessity, presence: true
 
   # Relations
   belongs_to :patient

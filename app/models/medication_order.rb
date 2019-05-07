@@ -1,6 +1,6 @@
 class MedicationOrder < ApplicationRecord
   # Validations
-  validates :name, :unit, :dosage, :route, :necessity, :patient, presence: true
+  validates :name, :unit, :dosage, :route, :necessity, presence: true
 
   # Enums
   enum unit: { mg: 0 }
