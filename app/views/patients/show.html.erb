@@ -1,5 +1,5 @@
 <div class="container tfs-data">
-  <%= link_to t('back'), patients_path %>
+  <%= link_to t('back'), patients_path, id: 'back' %>
   <h2><%= t('patient.emergency_summary') %></h2>
   <%= render 'transferring_facility', patient: @patient %>
   <%= render 'patient_information', patient: @patient %>

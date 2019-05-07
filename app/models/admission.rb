@@ -1,20 +1,21 @@
 class Admission < ApplicationRecord
+  # Validations
+  validates :moment, :patient, :facility, presence: true
 
   # Relations
   belongs_to :facility
   belongs_to :patient
-  has_many :SC, dependent: :destroy
   has_many :diagnosis_admissions
   has_many :diagnoses, through: :diagnosis_admissions, dependent: :destroy
   has_many :observations, dependent: :destroy
   has_many :symptoms, dependent: :destroy
 
   def date
-    moment.strftime('%B %d, %Y')
+    moment.in_time_zone('Chennai').strftime('%B %d, %Y')
   end
 
   def time
-    moment.strftime('%l:%M %P')
+    moment.in_time_zone('Chennai').strftime('%l:%M %P')
   end
 
   def diagnoses_text
