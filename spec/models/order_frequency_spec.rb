@@ -6,6 +6,7 @@ RSpec.describe OrderFrequency, type: :model do
     it 'Creating invalid record' do
       expect(OrderFrequency.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(order_frequency.update(value: '')).to eq(false)
     end

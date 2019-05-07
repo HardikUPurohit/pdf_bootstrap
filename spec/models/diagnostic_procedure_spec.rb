@@ -6,6 +6,7 @@ RSpec.describe DiagnosticProcedure, type: :model do
     it 'Creating invalid record' do
       expect(DiagnosticProcedure.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(diagnostic_procedure.update(description: '')).to eq(false)
     end

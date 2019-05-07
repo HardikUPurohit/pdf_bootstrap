@@ -6,6 +6,7 @@ RSpec.describe Patient, type: :model do
     it 'Creating invalid record' do
       expect(Patient.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(patient.update(first_name: '')).to eq(false)
     end
@@ -19,6 +20,7 @@ RSpec.describe Patient, type: :model do
 
   context '#facility_name' do
     let!(:admission) { create(:admission, patient: patient) }
+    
     it 'returns facility' do
       expect(patient.facility_name).to eq('Blue Alps Ski Camp')
     end
@@ -26,6 +28,7 @@ RSpec.describe Patient, type: :model do
 
   context '#allergies_description' do
     let!(:allergy) { create(:allergy, patient: patient) }
+    
     it 'returns allergies array' do
       expect(patient.allergies_description).to eq(['gluten intolerance'])
     end
@@ -41,6 +44,7 @@ RSpec.describe Patient, type: :model do
 
   context '#treatments_text' do
     let!(:treatment) { create(:treatment, patient: patient) }
+    
     it 'returns treatment array' do
       expect(patient.treatments_text).to eq(['temporary bracing the right leg to restrict the motion'])
     end
@@ -54,6 +58,7 @@ RSpec.describe Patient, type: :model do
 
   context '#diagnostic_procedure_text' do
     let!(:diagnostic_procedure) { create(:diagnostic_procedure, patient: patient) }
+    
     it 'returns diagnostic procedure array' do
       expect(patient.diagnostic_procedure_text).to eq(['an exploratory radiography on April 29, 2019 at 3:11 pm'])
     end

@@ -1,6 +1,6 @@
 class Admission < ApplicationRecord
   # Validations
-  validates :moment, :patient, :facility, presence: true
+  validates :moment, presence: true
 
   # Relations
   belongs_to :facility
