@@ -6,6 +6,7 @@ RSpec.describe Symptom, type: :model do
     it 'Creating invalid record' do
       expect(Symptom.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(symptom.update(description: '')).to eq(false)
     end

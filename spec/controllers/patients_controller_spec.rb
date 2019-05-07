@@ -2,29 +2,38 @@ require 'rails_helper'
 
 RSpec.describe PatientsController do
   describe 'GET index' do
-    it 'assigns @patients' do
-      patient = create(:patient)
-      get :index
-      expect(assigns(:patients)).to eq([patient])
-    end
+    let!(:patient) { create(:patient) }
+    let!(:another_patient) { create(:patient) }
 
-    it 'renders the index template' do
+    it 'lists all patients' do
       get :index
-      expect(response).to render_template('index')
+
+      expect(response).to have_http_status :ok
+      expect(response).to render_template 'index'
+      expect(assigns(:patients)).to include patient
     end
   end
 
   describe 'GET show' do
-    let(:patient) { create(:patient) }
+    context 'with existing patient' do
+      let(:patient) { create(:patient) }
+      
+      it 'returns patient details' do
+        get :show, params: { id: patient.id }
 
-    it 'finds @patient' do
-      get :show, params: { id: patient.id }
-      expect(assigns(:patient)).to eq(patient)
+        expect(response).to have_http_status :ok
+        expect(response).to render_template 'show'
+        expect(assigns(:patient)).to eq patient
+      end
     end
 
-    it 'renders the show template' do
-      get :show, params: { id: patient.id }
-      expect(response).to render_template('show')
+    context 'patient not exists' do
+      it 'redirects to error page' do
+        get :show, params: { id: 100 }
+
+        expect(response).to have_http_status :not_found
+        expect(assigns(:patient)).to be_nil
+      end
     end
   end
 end

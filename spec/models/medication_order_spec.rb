@@ -6,6 +6,7 @@ RSpec.describe MedicationOrder, type: :model do
     it 'Creating invalid record' do
       expect(MedicationOrder.new.save).to eq(false)
     end
+
     it 'Updating record with invalid value' do
       expect(medication_order.update(name: '')).to eq(false)
     end
@@ -13,6 +14,7 @@ RSpec.describe MedicationOrder, type: :model do
 
   context '#frequency' do
     let!(:order_frequency) { create(:order_frequency, medication_order: medication_order) }
+    
     it 'returns order frequency' do
       expect(medication_order.frequency).to eq('q6hour')
     end

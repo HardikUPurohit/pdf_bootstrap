@@ -6,6 +6,7 @@ RSpec.describe Observation, type: :model do
     it 'Creating invalid record' do
       expect(Observation.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(observation.update(description: '')).to eq(false)
     end

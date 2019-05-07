@@ -7,6 +7,7 @@ RSpec.describe Facility, type: :model do
     it 'Creating invalid record' do
       expect(Facility.new.save).to eq(false)
     end
+    
     it 'Updating record with invalid value' do
       expect(facility.update(name: '')).to eq(false)
     end
