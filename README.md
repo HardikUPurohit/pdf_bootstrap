@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Instalation
 
-Things you may want to cover:
+Run following commands from app root
+1. `bundle`
+2. `rake db:setup`
+3. `rails s` and visit http://localhost:3000
 
-* Ruby version
+### Run Specs
+Run following command from app root
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rspec`
